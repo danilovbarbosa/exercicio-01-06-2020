@@ -1,10 +1,10 @@
 class Produto:
     
-    def __init__(self, nome, descricao, valor):
+    def __init__(self, nome:str, descricao:str, valor:str, categoria: Categoria):
         self.__nome = nome
         self.__descricao = descricao
         self.__valor = valor
-        self.
+        self.__categoria = categoria
         
     @property
     def get_nome(self):
