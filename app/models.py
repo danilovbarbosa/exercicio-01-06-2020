@@ -4,6 +4,7 @@ class Produto:
         self.__nome = nome
         self.__descricao = descricao
         self.__valor = valor
+        self.
         
     @property
     def get_nome(self):
