@@ -19,11 +19,11 @@ class TestProduto:
         
         assert isExist is True, f"O valor deveria ser True, porém foi {isExist}"
     
-    def test_deve_ler_o_arquivo_com_categorias(self):       
-        nome_do_arquivo = os.getcwd() + "/" + "test_categoria.txt"
+    def test_deve_ler_o_arquivo_com_produtos(self):       
+        nome_do_arquivo = os.getcwd() + "/" + "test_produto.txt"
         
-        categoriaDAO = CategoriaDAO(nome_do_arquivo)
+        produtoDAO = ProdutoDAO(nome_do_arquivo)
 
-        list_categorias = categoriaDAO.read()
+        list_produtos = produtoDAO.read()
         
-        assert isinstance(list_categorias, list), f"O valor deveria ser [], porém foi {list_categorias}"
+        assert isinstance(list_produtos, list), f"O valor deveria ser [], porém foi {list_produtos}"

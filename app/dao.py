@@ -17,8 +17,8 @@ class CategoriaDAO:
         File.write(self.nome_do_arquivo, categoria)
 
     def read(self) -> List[Categoria]:
-        lista_categorias_str = File.read(self.nome_do_arquivo).splitlines()
-        return [Categoria(i[0], i[1]) for i in lista_categorias_str]
+        lista_str = File.read(self.nome_do_arquivo).splitlines()
+        return [Categoria(i[0], i[1]) for i in lista_str]
 
     def delete(self):
         pass
@@ -36,8 +36,9 @@ class ProdutoDAO:
     def create(self, produto: Produto) -> NoReturn:
         File.write(self.nome_do_arquivo, produto)
 
-    def read(self):
-        pass
+    def read(self) -> List[Produto]:
+        lista_str = File.read(self.nome_do_arquivo).splitlines()
+        return [Produto(i[0], i[1], i[2], i[3]) for i in lista_str]
 
     def delete(self):
         pass
