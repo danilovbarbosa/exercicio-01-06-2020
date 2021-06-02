@@ -29,6 +29,11 @@ class CategoriaDAO:
     
     
 class ProdutoDAO:
+    
+    def __init__(self, nome_do_arquivo):
+        self.nome_do_arquivo = nome_do_arquivo
+    File.create(nome_do_arquivo)
+
     def create(self):
         pass
 
