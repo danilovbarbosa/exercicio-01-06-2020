@@ -1,6 +1,8 @@
 from pathlib import Path
+
 import io
-from typing import NoReturn
+
+from typing import NoReturn, TextIO
 
 
 class File:
@@ -31,11 +33,12 @@ class File:
 
             return quantidade_de_linhas
         
-        except FileNotFoundError:
+        except FileNotFoundError as e:
+            print(e)
             return 0
 
     @staticmethod
-    def write(nome_do_arquivo: str, linha: int) -> io.TextIOWrapper:
+    def write(nome_do_arquivo: str, linha: object) -> TextIO:
         '''
         Deve escrever o argumento linha no arquivo com o nome definido no argumento: nome_do_arquivo.
         
@@ -46,12 +49,12 @@ class File:
         quantidade_atual_de_linhas = File.count_lines(nome_do_arquivo)
         arquivo = open(nome_do_arquivo, 'a')
         try:
-            arquivo.write(str(quantidade_atual_de_linhas) + ', ' + linha + '\n')
+            arquivo.write(str(quantidade_atual_de_linhas) + ', ' + str(linha) + '\n')
 
             return arquivo 
 
         except io.UnsupportedOperation:
-            arquivo.write("0, " + linha + '\n')
+            arquivo.write("0, " + str(linha) + '\n')
 
             return arquivo 
 
@@ -70,7 +73,7 @@ class File:
         return arquivo.read_text()
     
     @staticmethod
-    def remove(nome_do_arquivo: str, numero_da_linha: int) -> NoReturn:
+    def remove(nome_do_arquivo: str, numero_da_linha: int) -> None:
         '''
         Deve remover a linha indicada no argumento numero_da_linha no arquivo com o nome definido no argumento: nome_do_arquivo.
         

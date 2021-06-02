@@ -8,6 +8,8 @@ authors = ["Danilo Costa <danilo.v.barbosa@gmail.com>"]
 python = "^3.9"
 pytest = "^6.2.4"
 coverage = "^5.5"
+mypy = "^0.812"
+flake8 = "^3.9.2"
 
 [tool.poetry.dev-dependencies]
 
