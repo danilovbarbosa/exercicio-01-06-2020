@@ -26,3 +26,4 @@ class TestCategoria:
         list_categorias = categoriaDAO.read()
         
         assert isinstance(list_categorias, list), f"O valor deveria ser [], porém foi {list_categorias}"
+        

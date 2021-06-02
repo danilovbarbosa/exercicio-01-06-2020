@@ -70,5 +70,18 @@ class File:
         return arquivo.read_text()
     
     @staticmethod
-    def remove(nome_do_arquivo: str, linha: int, numero_da_linha: int):
-        return 0    
+    def remove(nome_do_arquivo: str, numero_da_linha: int) -> NoReturn:
+        '''
+        Deve remover a linha indicada no argumento numero_da_linha no arquivo com o nome definido no argumento: nome_do_arquivo.
+        
+        >>> nome = "teste"
+        >>> remove(nome, 0)
+        '''
+        
+        with open(nome_do_arquivo, "r") as f:
+            lines = f.readlines()
+            
+        with open(nome_do_arquivo, "w") as f:
+            for line in lines:
+                if not numero_da_linha in line.strip("\n"):
+                    f.write(line)
