@@ -55,8 +55,8 @@ class ProdutoDAO(DAO):
         lista_str = File.read(self.nome_do_arquivo).splitlines()
         return [Produto(i[0], i[1], i[2], i[3]) for i in lista_str]
 
-    def delete(self):
-        pass
+    def delete(self, numero_da_linha: int) -> NoReturn:
+        File.remove(self.nome_do_arquivo, numero_da_linha)
 
     def update(self):
         pass
