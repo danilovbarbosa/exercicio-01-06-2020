@@ -5,7 +5,7 @@ class Categoria:
         self.__descricao = descricao
 
     def __str__(self):
-        return self.__nome
+        return f"{self.__nome}, {self.__descricao}"
 
 
 class Produto:
@@ -29,4 +29,4 @@ class Produto:
         return self.__valor
     
     def __str__(self):
-        return self.__nome
+        return f"{self.__nome}, {self.__descricao}, , {self.__valor}, {self.__categoria}"
