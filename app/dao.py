@@ -34,8 +34,8 @@ class ProdutoDAO:
         self.nome_do_arquivo = nome_do_arquivo
     File.create(nome_do_arquivo)
 
-    def create(self):
-        pass
+    def create(self, produto: Produto) -> NoReturn:
+        File.write(self.nome_do_arquivo, produto)
 
     def read(self):
         pass
