@@ -1,6 +1,4 @@
-import os
-
-from typing import NoReturn, List
+from typing import List
 
 from .models import Produto, Categoria
 
@@ -8,7 +6,7 @@ from .util import File
 
 
 class DAO:
-    
+
     def create(self):
         pass
 

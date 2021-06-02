@@ -3,8 +3,9 @@ import os
 from app.models import Categoria
 from app.dao import CategoriaDAO
 
+
 class TestCategoria:
-    
+
     def test_deve_criar_um_arquivo_com_uma_categoria(self):
         categoria = Categoria("nome teste", "nome descricao")
         

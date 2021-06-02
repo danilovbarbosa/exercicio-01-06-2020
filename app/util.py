@@ -2,17 +2,18 @@ from pathlib import Path
 
 import io
 
-from typing import NoReturn, TextIO
+from typing import TextIO
 
 
 class File:
-    
+
     @staticmethod
     def create(nome_do_arquivo: str) -> int:
         '''
-        Deve criar um novo arquivo com o nome indicado no argumento: nome_do_arquivo.
+        Deve criar um novo arquivo com o nome indicado no argumento: 
+        nome_do_arquivo.
         '''
-        
+
         if not Path(nome_do_arquivo).exists():
             Path(nome_do_arquivo)
             return 1
@@ -21,11 +22,13 @@ class File:
     @staticmethod
     def count_lines(nome_do_arquivo: str) -> int:
         '''
-        Deve ler um arquivo para contar a quantidade de linhas e retornar o valor.
+        Deve ler um arquivo para contar a quantidade de linhas e retornar o 
+        valor.
         
         >>> count_lines()
         0
         '''
+        
         try:
             arquivo = open(nome_do_arquivo, 'r')
             quantidade_de_linhas = len(arquivo.readlines())
@@ -40,7 +43,8 @@ class File:
     @staticmethod
     def write(nome_do_arquivo: str, linha: object) -> TextIO:
         '''
-        Deve escrever o argumento linha no arquivo com o nome definido no argumento: nome_do_arquivo.
+        Deve escrever o argumento linha no arquivo com o nome definido no 
+        argumento: nome_do_arquivo.
         
         >>> nome = "teste"
         >>> write(nome)
@@ -49,7 +53,9 @@ class File:
         quantidade_atual_de_linhas = File.count_lines(nome_do_arquivo)
         arquivo = open(nome_do_arquivo, 'a')
         try:
-            arquivo.write(str(quantidade_atual_de_linhas) + ', ' + str(linha) + '\n')
+            arquivo.write(
+                str(quantidade_atual_de_linhas) + ', ' + str(linha) + '\n'
+            )
 
             return arquivo 
 
@@ -71,11 +77,12 @@ class File:
         '''
         arquivo = Path(nome_do_arquivo)
         return arquivo.read_text()
-    
+
     @staticmethod
     def remove(nome_do_arquivo: str, numero_da_linha: int) -> None:
         '''
-        Deve remover a linha indicada no argumento numero_da_linha no arquivo com o nome definido no argumento: nome_do_arquivo.
+        Deve remover a linha indicada no argumento numero_da_linha no arquivo 
+        com o nome definido no argumento: nome_do_arquivo.
         
         >>> nome = "teste"
         >>> remove(nome, 0)
