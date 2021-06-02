@@ -83,5 +83,5 @@ class File:
             
         with open(nome_do_arquivo, "w") as f:
             for line in lines:
-                if not numero_da_linha in line.strip("\n"):
+                if not str(numero_da_linha) in line.strip("\n"):
                     f.write(line)
