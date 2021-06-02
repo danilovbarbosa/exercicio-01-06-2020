@@ -17,10 +17,16 @@ class Produto:
     @property
     def get_valor(self):
         return self.__valor
-
+    
+    def __str__(self):
+        return self.__nome
+    
 
 class Categoria:
     
     def __init__(self, nome, descricao):
         self.__nome = nome
         self.__descricao = descricao
+
+    def __str__(self):
+        return self.__nome

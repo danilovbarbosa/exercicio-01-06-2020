@@ -5,12 +5,15 @@ import io
 class Arquivo:
     
     @staticmethod
-    def criar(nome_do_arquivo):
+    def create(nome_do_arquivo):
+        '''
+        
+        '''
         if not Path(nome_do_arquivo).exists():
             Path(nome_do_arquivo)
 
     @staticmethod
-    def contar_linhas(nome_do_arquivo):
+    def count_lines(nome_do_arquivo):
         try:
             arquivo = open(nome_do_arquivo, 'r')
             quantidade_de_linhas = len(arquivo.readlines())
@@ -21,13 +24,13 @@ class Arquivo:
             return 0
 
     @staticmethod
-    def escrever(nome_do_arquivo, linha):
+    def write(nome_do_arquivo, linha):
         '''
         >>> nome = "teste"
-        >>> escrever(nome)
+        >>> write(nome)
         '''
 
-        quantidade_atual_de_linhas = Arquivo.contar_linhas(nome_do_arquivo)
+        quantidade_atual_de_linhas = Arquivo.count_lines(nome_do_arquivo)
         arquivo = open(nome_do_arquivo, 'a')
         try:
             arquivo.write(str(quantidade_atual_de_linhas) + ', ' + linha + '\n')
@@ -43,16 +46,16 @@ class Arquivo:
             arquivo.close()
 
     @staticmethod
-    def ler(nome_do_arquivo):
+    def read(nome_do_arquivo):
         '''
         >>> nome = "teste"
-        >>> escrever(nome, "teste")
-        >>> ler(nome)
+        >>> write(nome, "teste")
+        >>> read(nome)
         teste
         '''
         arquivo = Path(nome_do_arquivo)
         return arquivo.read_text()
     
     @staticmethod
-    def remover():
+    def remove():
         return 0    
