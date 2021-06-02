@@ -70,5 +70,5 @@ class File:
         return arquivo.read_text()
     
     @staticmethod
-    def remove():
+    def remove(nome_do_arquivo: str, linha: int, numero_da_linha: int):
         return 0    

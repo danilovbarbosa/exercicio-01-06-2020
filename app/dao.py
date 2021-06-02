@@ -7,7 +7,22 @@ from .models import Produto, Categoria
 from .util import File
 
 
-class CategoriaDAO:
+class DAO:
+    
+    def create(self):
+        pass
+
+    def read(self):
+        pass
+
+    def delete(self):
+        pass
+
+    def update(self):
+        pass
+
+
+class CategoriaDAO(DAO):
 
     def __init__(self, nome_do_arquivo):
         self.nome_do_arquivo = nome_do_arquivo
@@ -27,7 +42,7 @@ class CategoriaDAO:
         pass
 
 
-class ProdutoDAO:
+class ProdutoDAO(DAO):
 
     def __init__(self, nome_do_arquivo):
         self.nome_do_arquivo = nome_do_arquivo
