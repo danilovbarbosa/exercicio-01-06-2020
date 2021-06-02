@@ -1,12 +1,19 @@
-from app.dao import CategoriaDAO
-import os, sys
-sys.path.append(os.getcwd())
+import os
 
+from app.models import Categoria
 from app.dao import CategoriaDAO
 
 class TestCategoria:
     
-    def test_deve_criar_um_arquivo():
-        resultado = CategoriaDAO("teste.txt")
+    def test_deve_criar_um_arquivo(self):
+        categoria = Categoria("nome teste", "nome descricao")
         
-        assert resultado == 1, f"O valor deveria ser 1, porém foi {resultado}"
+        nome_do_arquivo = os.getcwd() + "/" + "test.txt"
+        
+        categoriaDAO = CategoriaDAO(nome_do_arquivo)
+        categoriaDAO.create(categoria.__str__())
+
+        isExist = os.path.exists(nome_do_arquivo)
+        print(isExist)
+        
+        assert isExist is True, f"O valor deveria ser True, porém foi {isExist}"
