@@ -6,15 +6,24 @@ from typing import NoReturn
 class File:
     
     @staticmethod
-    def create(nome_do_arquivo: str) -> NoReturn:
+    def create(nome_do_arquivo: str) -> int:
         '''
-        Cria um novo arquivo com o nome indicado no argumento: nome_do_arquivo
+        Deve criar um novo arquivo com o nome indicado no argumento: nome_do_arquivo.
         '''
+        
         if not Path(nome_do_arquivo).exists():
             Path(nome_do_arquivo)
+            return 1
+        return 0
 
     @staticmethod
     def count_lines(nome_do_arquivo: str) -> int:
+        '''
+        Deve ler um arquivo para contar a quantidade de linhas e retornar o valor.
+        
+        >>> count_lines()
+        0
+        '''
         try:
             arquivo = open(nome_do_arquivo, 'r')
             quantidade_de_linhas = len(arquivo.readlines())
@@ -28,6 +37,8 @@ class File:
     @staticmethod
     def write(nome_do_arquivo: str, linha: int) -> io.TextIOWrapper:
         '''
+        Deve escrever o argumento linha no arquivo com o nome definido no argumento: nome_do_arquivo.
+        
         >>> nome = "teste"
         >>> write(nome)
         '''
