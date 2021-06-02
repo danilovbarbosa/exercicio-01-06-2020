@@ -1,36 +1,38 @@
 from pathlib import Path
 import io
+from typing import NoReturn
 
 
-class Arquivo:
+class File:
     
     @staticmethod
-    def create(nome_do_arquivo):
+    def create(nome_do_arquivo: str) -> NoReturn:
         '''
-        
+        Cria um novo arquivo com o nome indicado no argumento: nome_do_arquivo
         '''
         if not Path(nome_do_arquivo).exists():
             Path(nome_do_arquivo)
 
     @staticmethod
-    def count_lines(nome_do_arquivo):
+    def count_lines(nome_do_arquivo: str) -> int:
         try:
             arquivo = open(nome_do_arquivo, 'r')
             quantidade_de_linhas = len(arquivo.readlines())
             arquivo.close()
 
             return quantidade_de_linhas
+        
         except FileNotFoundError:
             return 0
 
     @staticmethod
-    def write(nome_do_arquivo, linha):
+    def write(nome_do_arquivo: str, linha: int) -> io.TextIOWrapper:
         '''
         >>> nome = "teste"
         >>> write(nome)
         '''
 
-        quantidade_atual_de_linhas = Arquivo.count_lines(nome_do_arquivo)
+        quantidade_atual_de_linhas = File.count_lines(nome_do_arquivo)
         arquivo = open(nome_do_arquivo, 'a')
         try:
             arquivo.write(str(quantidade_atual_de_linhas) + ', ' + linha + '\n')
@@ -46,7 +48,7 @@ class Arquivo:
             arquivo.close()
 
     @staticmethod
-    def read(nome_do_arquivo):
+    def read(nome_do_arquivo: str) -> str:
         '''
         >>> nome = "teste"
         >>> write(nome, "teste")
